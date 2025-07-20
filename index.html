@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anime Boy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      color: white;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    #background-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    .container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 2s ease-in;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      line-height: 1.8;
+      animation: fadeIn 3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dark-mode {
+      background-color: #111;
+      color: #ddd;
+    }
+
+    .dark-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 2;
+    }
+
+    .dark-mode .dark-mode-toggle {
+      background-color: #444;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+  <video autoplay muted loop id="background-video">
+    <source src="https://cdn.pixabay.com/video/2023/04/25/162634-823493086_large.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <div class="container">
+    <h1>Straw Hat King</h1>
+    <p>
+      Sailing seas with dreams so high,<br>
+      A straw hat worn, he reaches the sky.<br>
+      Friends beside him, strong and true,<br>
+      Through every storm, they push through.<br><br>
+      With laughter loud and fists that fly,<br>
+      He never lets a dream just die.<br>
+      This is the tale, the pirate’s song,<br>
+      Of Luffy’s will, forever strong.
+    </p>
+  </div>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
