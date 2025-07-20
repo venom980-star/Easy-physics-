@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Kinematics - SKC Crush Style</title>
+  <title>SKC Class 11 — Kinematics (Complete)</title>
   <link href="https://fonts.googleapis.com/css2?family=Kalam&family=Patrick+Hand&display=swap" rel="stylesheet">
   <style>
     body {
@@ -20,13 +20,14 @@
       color: #e94560;
       font-family: 'Kalam', cursive;
       font-size: 2.4em;
-      margin-bottom: 0;
+      margin-bottom: 10px;
     }
     h2 {
       color: #222;
       border-left: 5px solid #e94560;
       padding-left: 10px;
       margin-top: 30px;
+      margin-bottom: 5px;
     }
     .formula {
       background: #ffecec;
@@ -37,7 +38,7 @@
       color: #d00000;
       margin: 15px 0;
     }
-    .highlight, .trick, .note {
+    .note, .trick, .box {
       border: 2px dashed #555;
       padding: 10px;
       background: #f9f9f9;
@@ -54,78 +55,178 @@
     ul {
       margin-left: 20px;
     }
-    strong {
-      color: #000;
+    strong { color: #000; }
+    .box-header {
+      font-weight: bold;
+      margin-bottom: 5px;
     }
   </style>
 </head>
 <body>
 
-  <h1>📘 KINEMATICS – CRUSH NOTES</h1>
+  <h1>KINEMATICS (Complete SKC Notes)</h1>
 
-  <h2>1. What is Kinematics?</h2>
-  <p>Kinematics = Study of <strong>motion</strong> without cause.</p>
-  <ul>
-    <li>Only deals with position, velocity, acceleration.</li>
-    <li>No force, no mass involved.</li>
-  </ul>
-
-  <h2>2. Types of Motion</h2>
-  <ul>
-    <li><strong>1D Motion</strong> – Straight line (e.g. train on track)</li>
-    <li><strong>2D Motion</strong> – Plane motion (e.g. projectile)</li>
-    <li><strong>3D Motion</strong> – Full space (e.g. flying bird)</li>
-  </ul>
-
-  <h2>3. Basic Quantities</h2>
-  <ul>
-    <li><strong>Distance:</strong> Total path (scalar)</li>
-    <li><strong>Displacement:</strong> Shortest path from A to B (vector)</li>
-    <li><strong>Speed:</strong> Rate of distance</li>
-    <li><strong>Velocity:</strong> Rate of displacement</li>
-    <li><strong>Acceleration:</strong> Rate of velocity change</li>
-  </ul>
-
-  <h2>4. Uniform Acceleration Equations</h2>
-
-  <div class="formula">v = u + at</div>
-  <div class="formula">s = ut + ½ at²</div>
-  <div class="formula">v² = u² + 2as</div>
-
-  <div class="note">
-    <strong>NOTE:</strong> Use only when acceleration is constant.
+  <!-- 1 -->
+  <h2>1. Kinematics Overview</h2>
+  <p><strong>Kinematics</strong> = Study of motion <u>without</u> considering its cause (force/mass).</p>
+  <div class="box">
+    <div class="box-header">✔️ Key Point:</div>
+    <ul>
+      <li>Only focuses on <strong>Position</strong>, <strong>Velocity</strong>, and <strong>Acceleration</strong>.</li>
+      <li>No dynamics (force/mass) involved.</li>
+    </ul>
   </div>
 
-  <h2>5. Graphical Trick</h2>
+  <!-- 2 -->
+  <h2>2. Classification of Motion</h2>
   <ul>
-    <li>Slope of x-t graph = velocity</li>
-    <li>Slope of v-t graph = acceleration</li>
-    <li>Area under v-t graph = displacement</li>
+    <li><strong>One-Dimensional (1D)</strong>: Straight-line motion (e.g., train on track).</li>
+    <li><strong>Two-Dimensional (2D)</strong>: Planar (e.g., projectile, circular).</li>
+    <li><strong>Three-Dimensional (3D)</strong>: Full space (e.g., flight of bird).</li>
   </ul>
+  <div class="note">
+    Motion type ↔ choice of coordinate system & formulas.
+  </div>
 
+  <!-- 3 -->
+  <h2>3. Distance vs Displacement</h2>
+  <ul>
+    <li><strong>Distance</strong> (scalar): Total path length.</li>
+    <li><strong>Displacement</strong> (vector): Straight-line distance from start to end.</li>
+  </ul>
   <div class="trick">
-    ⚡ <strong>TRICK:</strong> Use graph slope & area to crack most kinematics questions fast!
+    ⚡ Remember: Displacement ≤ Distance always (unless the path is straight).
   </div>
 
-  <h2>6. Average vs Instantaneous</h2>
+  <!-- 4 -->
+  <h2>4. Speed & Velocity</h2>
   <ul>
-    <li><strong>Avg Velocity</strong> = (x₂ − x₁)/(t₂ − t₁)</li>
-    <li><strong>Inst. Velocity</strong> = dx/dt</li>
-    <li><strong>Avg Acceleration</strong> = (v₂ − v₁)/(t₂ − t₁)</li>
-    <li><strong>Inst. Acceleration</strong> = dv/dt</li>
+    <li><strong>Average Speed</strong> = total distance / total time</li>
+    <li><strong>Average Velocity</strong> = total displacement / total time = Δx/Δt</li>
+    <li><strong>Instantaneous Velocity</strong> = lim (Δt→0) Δx/Δt = dx/dt</li>
+  </ul>
+  <div class="formula">v = dx/dt</div>
+  <div class="trick">
+    🔍 Velocity can be negative; watch direction vs speed!
+  </div>
+
+  <!-- 5 -->
+  <h2>5. Acceleration</h2>
+  <ul>
+    <li><strong>Average Acceleration</strong> = Δv/Δt</li>
+    <li><strong>Instantaneous Acceleration</strong> = dv/dt</li>
+  </ul>
+  <div class="formula">a = dv/dt</div>
+  <div class="note">
+    Acceleration sign indicates speeding up (same direction) or slowing down (opposite direction).
+  </div>
+
+  <!-- 6 -->
+  <h2>6. Equations of Motion (Uniform Acceleration)</h2>
+  <div class="formula">v = u + at</div>
+  <div class="formula">s = ut + ½ a t²</div>
+  <div class="formula">v² = u² + 2as</div>
+  <div class="box">
+    <div class="box-header">📌 When to Use:</div>
+    <ul>
+      <li>Always when <strong>a</strong> = constant.</li>
+      <li>Choose based on known & unknown variables.</li>
+    </ul>
+  </div>
+
+  <!-- 7 -->
+  <h2>7. Derivation Tips — Quick!</h2>
+  <div class="trick">
+    ➕ From v = u + at → t = (v−u)/a. Substitute into s = ut + ½at² to derive s = (u+v)/2 · t.
+  </div>
+  <div class="trick">
+    ➕ y = ut + ½at² also gives v² = u² + 2as by eliminating t.
+  </div>
+
+  <!-- 8 -->
+  <h2>8. Graphical representation</h2>
+  <ul>
+    <li><strong>x–t Graph:</strong> slope = velocity</li>
+    <li><strong>v–t Graph:</strong> slope = acceleration; area under = displacement</li>
+    <li><strong>a–t Graph:</strong> area under = change in velocity</li>
+  </ul>
+  <div class="note">
+    Graph interpretation Qs are easy marks—practice with straight & curved plots!
+  </div>
+
+  <!-- 9 -->
+  <h2>9. Average vs Instantaneous Summary</h2>
+  <ul>
+    <li>avg v = (x₂ − x₁)/(t₂ − t₁)</li>
+    <li>inst v = lim Δt→0 Δx/Δt</li>
+    <li>avg a = (v₂ − v₁)/(t₂ − t₁)</li>
+    <li>inst a = lim Δt→0 Δv/Δt</li>
   </ul>
 
-  <h2>7. Relative Velocity</h2>
-  <p>Velocity of A wrt B:</p>
-  <div class="formula">V<sub>AB</sub> = V<sub>A</sub> − V<sub>B</sub></div>
-
-  <h2>8. Bonus Formulas</h2>
-  <div class="formula">s = vt − ½ at² (if motion in opposite direction)</div>
-  <div class="formula">s = (v² − u²)/2a</div>
-
-  <div class="note">
-    Always draw diagram before solving kinematics question!
+  <!-- 10 -->
+  <h2>10. Relative Motion (1D)</h2>
+  <p>Velocity of A relative to B:</p>
+  <div class="formula">V<sub>AB</sub> = V<sub>A</sub> – V<sub>B</sub></div>
+  <div class="trick">
+    🔄 Always subtract in correct order—direction matters!
   </div>
+
+  <!-- 11 -->
+  <h2>11. Non-Uniform Motion</h2>
+  <p>If acceleration isn’t constant, use calculus:</p>
+  <div class="formula">v = ∫ a dt, x = ∫ v dt = ∫ ∫ a dt²</div>
+  <div class="note">
+    SKC skips detailed calculus—stick to uniform acceleration for exam mains.
+  </div>
+
+  <!-- 12 -->
+  <h2>12. Important Tips & Tricks</h2>
+  <ul>
+    <li>Draw a motion diagram with positive/negative direction.</li>
+    <li>θ = 0°, +ve direction → a positive acceleration increases speed.</li>
+    <li>Common errors: wrong sign, mis-read graph, wrong eqn usage.</li>
+  </ul>
+  <div class="trick">
+    🧠 SKC Shortcut: If a < 0 and u > 0 → slowing down. When v becomes zero, object reverses direction.
+  </div>
+
+  <!-- 13 -->
+  <h2>13. Sample Problem (SKC Style)</h2>
+  <p><strong>Q.</strong> A car starts from rest, accelerates uniformly at 2 m/s² for 5 s. Find distance covered.</p>
+  <p><strong>A.</strong>
+    u = 0, a = 2, t = 5<br>
+    Use s = ut + ½ at² → s = 0 + ½×2×25 = 25 m
+  </p>
+  <div class="note">
+    Check units! Time in seconds, acceleration in m/s² → s in meters ✔️
+  </div>
+
+  <!-- 14 -->
+  <h2>14. Quick Revision Table</h2>
+  <div class="box">
+    <table style="width:100%; border-collapse: collapse; font-family:'Patrick Hand', cursive;">
+      <tr><th style="text-align:left; border-bottom:1px solid #ccc;">Quantity</th><th style="text-align:left; border-bottom:1px solid #ccc;">Formula</th></tr>
+      <tr><td>v</td><td>u + at</td></tr>
+      <tr><td>s</td><td>ut + ½ at²</td></tr>
+      <tr><td>v²</td><td>u² + 2as</td></tr>
+      <tr><td>a</td><td>dv/dt</td></tr>
+    </table>
+  </div>
+
+  <!-- 15 -->
+  <h2>15. Final Tips for Exam</h2>
+  <ul>
+    <li>Always list knowns (u, a, t, s, v).</li>
+    <li>Underline what they want (e.g., "distance", "final velocity").</li>
+    <li>Choose equation with only 1 unknown.</li>
+    <li>Write units in m, s, m/s, m/s².</li>
+  </ul>
+  <div class="note">
+    If stuck, draw x–t & v–t graph and use area/slope method ✔️
+  </div>
+
+  <h2>All done! 🎯</h2>
+  <p>This completes the full SKC Crush-style Kinematics chapter. Upload this file as-is, or convert to PDF using your browser’s print-to-PDF.</p>
 
 </body>
-  </html>
+</html>
