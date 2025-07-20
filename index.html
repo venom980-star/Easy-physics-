@@ -1,165 +1,113 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Pomodoro Clock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anime Boy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #1a1a2e;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      transition: background 0.3s, color 0.3s;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    body.light {
-      background: #f5f5f5;
-      color: #111;
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      color: white;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    #background-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    .container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.5);
     }
 
     h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
       margin-bottom: 1rem;
+      animation: fadeIn 2s ease-in;
     }
 
-    #timer {
-      font-size: 5rem;
-      margin: 20px 0;
+    p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      line-height: 1.8;
+      animation: fadeIn 3s ease-in;
     }
 
-    .controls button, .settings button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background: #e94560;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dark-mode {
+      background-color: #111;
+      color: #ddd;
+    }
+
+    .dark-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: #fff;
       border: none;
-      border-radius: 10px;
-      color: white;
+      border-radius: 20px;
       cursor: pointer;
-    }
-
-    .controls button:hover, .settings button:hover {
-      background: #ff5f7e;
-    }
-
-    .settings input {
-      width: 50px;
-      padding: 5px;
-      margin: 0 5px;
-    }
-
-    .settings {
-      margin-bottom: 15px;
-    }
-
-    progress {
-      width: 100%;
-      height: 20px;
-      margin-top: 15px;
-    }
-
-    #session-count {
       font-weight: bold;
+      z-index: 2;
+    }
+
+    .dark-mode .dark-mode-toggle {
+      background-color: #444;
+      color: #fff;
     }
   </style>
 </head>
 <body>
-
-  <h1>Pomodoro Clock</h1>
-
-  <div class="settings">
-    Work: <input type="number" id="work-minutes" value="25" min="1" /> min
-    Break: <input type="number" id="break-minutes" value="5" min="1" /> min
-    <button onclick="applySettings()">Apply</button>
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+  <video autoplay muted loop id="background-video">
+    <source src="https://cdn.pixabay.com/video/2023/04/25/162634-823493086_large.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <div class="container">
+    <h1>Straw Hat King</h1>
+    <p>
+      Sailing seas with dreams so high,<br>
+      A straw hat worn, he reaches the sky.<br>
+      Friends beside him, strong and true,<br>
+      Through every storm, they push through.<br><br>
+      With laughter loud and fists that fly,<br>
+      He never lets a dream just die.<br>
+      This is the tale, the pirate’s song,<br>
+      Of Luffy’s will, forever strong.
+    </p>
   </div>
-
-  <div id="timer">25:00</div>
-  <progress id="progress" value="0" max="100"></progress>
-
-  <div class="controls">
-    <button onclick="startTimer()">Start</button>
-    <button onclick="pauseTimer()">Pause</button>
-    <button onclick="resetTimer()">Reset</button>
-    <button onclick="toggleTheme()">Toggle Theme</button>
-  </div>
-
-  <div id="mode">Work Session</div>
-  <div>Sessions Completed Today: <span id="session-count">0</span></div>
-
-  <audio id="ding" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto"></audio>
-
   <script>
-    let workDuration = 25 * 60;
-    let breakDuration = 5 * 60;
-    let currentTime = workDuration;
-    let isRunning = false;
-    let isWorkTime = true;
-    let timerInterval;
-    let sessionCount = parseInt(localStorage.getItem("pomodoro_sessions")) || 0;
-
-    const timerDisplay = document.getElementById("timer");
-    const modeDisplay = document.getElementById("mode");
-    const progressBar = document.getElementById("progress");
-    const sessionCounter = document.getElementById("session-count");
-    const ding = document.getElementById("ding");
-
-    function updateDisplay() {
-      const minutes = String(Math.floor(currentTime / 60)).padStart(2, '0');
-      const seconds = String(currentTime % 60).padStart(2, '0');
-      timerDisplay.textContent = `${minutes}:${seconds}`;
-      const total = isWorkTime ? workDuration : breakDuration;
-      progressBar.value = ((total - currentTime) / total) * 100;
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
     }
-
-    function startTimer() {
-      if (!isRunning) {
-        timerInterval = setInterval(() => {
-          currentTime--;
-          updateDisplay();
-
-          if (currentTime <= 0) {
-            ding.play();
-            if (isWorkTime) {
-              sessionCount++;
-              localStorage.setItem("pomodoro_sessions", sessionCount);
-              sessionCounter.textContent = sessionCount;
-            }
-            isWorkTime = !isWorkTime;
-            currentTime = isWorkTime ? workDuration : breakDuration;
-            modeDisplay.textContent = isWorkTime ? "Work Session" : "Break Time";
-          }
-        }, 1000);
-        isRunning = true;
-      }
-    }
-
-    function pauseTimer() {
-      clearInterval(timerInterval);
-      isRunning = false;
-    }
-
-    function resetTimer() {
-      clearInterval(timerInterval);
-      isRunning = false;
-      isWorkTime = true;
-      currentTime = workDuration;
-      modeDisplay.textContent = "Work Session";
-      updateDisplay();
-    }
-
-    function applySettings() {
-      workDuration = parseInt(document.getElementById("work-minutes").value) * 60;
-      breakDuration = parseInt(document.getElementById("break-minutes").value) * 60;
-      resetTimer();
-    }
-
-    function toggleTheme() {
-      document.body.classList.toggle("light");
-    }
-
-    // Initial setup
-    sessionCounter.textContent = sessionCount;
-    updateDisplay();
   </script>
 </body>
 </html>
