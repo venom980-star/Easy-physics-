@@ -1,113 +1,131 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anime Boy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Kinematics - SKC Crush Style</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam&family=Patrick+Hand&display=swap" rel="stylesheet">
   <style>
-    * {
+    body {
+      background: #fff;
+      font-family: 'Patrick Hand', cursive;
       margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body, html {
-      height: 100%;
-      overflow: hidden;
-      color: white;
-      transition: background 0.5s ease, color 0.5s ease;
-    }
-
-    #background-video {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -1;
-      object-fit: cover;
-    }
-
-    .container {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: fadeIn 2s ease-in;
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 800px;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
       line-height: 1.8;
-      animation: fadeIn 3s ease-in;
+      color: #111;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    h1 {
+      text-align: center;
+      color: #e94560;
+      font-family: 'Kalam', cursive;
+      font-size: 2.4em;
+      margin-bottom: 0;
     }
-
-    .dark-mode {
-      background-color: #111;
-      color: #ddd;
+    h2 {
+      color: #222;
+      border-left: 5px solid #e94560;
+      padding-left: 10px;
+      margin-top: 30px;
     }
-
-    .dark-mode-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 10px 15px;
-      background-color: #fff;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
+    .formula {
+      background: #ffecec;
+      border-left: 5px solid #e94560;
+      padding: 10px;
       font-weight: bold;
-      z-index: 2;
+      font-family: 'Courier New', monospace;
+      color: #d00000;
+      margin: 15px 0;
     }
-
-    .dark-mode .dark-mode-toggle {
-      background-color: #444;
-      color: #fff;
+    .highlight, .trick, .note {
+      border: 2px dashed #555;
+      padding: 10px;
+      background: #f9f9f9;
+      margin: 15px 0;
+    }
+    .trick {
+      border-color: #e94560;
+      background: #fff3f3;
+    }
+    .note {
+      border-color: #2980b9;
+      background: #eaf6ff;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    strong {
+      color: #000;
     }
   </style>
 </head>
 <body>
-  <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
-  <video autoplay muted loop id="background-video">
-    <source src="https://cdn.pixabay.com/video/2023/04/25/162634-823493086_large.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
-  <div class="container">
-    <h1>Straw Hat King</h1>
-    <p>
-      Sailing seas with dreams so high,<br>
-      A straw hat worn, he reaches the sky.<br>
-      Friends beside him, strong and true,<br>
-      Through every storm, they push through.<br><br>
-      With laughter loud and fists that fly,<br>
-      He never lets a dream just die.<br>
-      This is the tale, the pirate’s song,<br>
-      Of Luffy’s will, forever strong.
-    </p>
+
+  <h1>📘 KINEMATICS – CRUSH NOTES</h1>
+
+  <h2>1. What is Kinematics?</h2>
+  <p>Kinematics = Study of <strong>motion</strong> without cause.</p>
+  <ul>
+    <li>Only deals with position, velocity, acceleration.</li>
+    <li>No force, no mass involved.</li>
+  </ul>
+
+  <h2>2. Types of Motion</h2>
+  <ul>
+    <li><strong>1D Motion</strong> – Straight line (e.g. train on track)</li>
+    <li><strong>2D Motion</strong> – Plane motion (e.g. projectile)</li>
+    <li><strong>3D Motion</strong> – Full space (e.g. flying bird)</li>
+  </ul>
+
+  <h2>3. Basic Quantities</h2>
+  <ul>
+    <li><strong>Distance:</strong> Total path (scalar)</li>
+    <li><strong>Displacement:</strong> Shortest path from A to B (vector)</li>
+    <li><strong>Speed:</strong> Rate of distance</li>
+    <li><strong>Velocity:</strong> Rate of displacement</li>
+    <li><strong>Acceleration:</strong> Rate of velocity change</li>
+  </ul>
+
+  <h2>4. Uniform Acceleration Equations</h2>
+
+  <div class="formula">v = u + at</div>
+  <div class="formula">s = ut + ½ at²</div>
+  <div class="formula">v² = u² + 2as</div>
+
+  <div class="note">
+    <strong>NOTE:</strong> Use only when acceleration is constant.
   </div>
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
-  </script>
+
+  <h2>5. Graphical Trick</h2>
+  <ul>
+    <li>Slope of x-t graph = velocity</li>
+    <li>Slope of v-t graph = acceleration</li>
+    <li>Area under v-t graph = displacement</li>
+  </ul>
+
+  <div class="trick">
+    ⚡ <strong>TRICK:</strong> Use graph slope & area to crack most kinematics questions fast!
+  </div>
+
+  <h2>6. Average vs Instantaneous</h2>
+  <ul>
+    <li><strong>Avg Velocity</strong> = (x₂ − x₁)/(t₂ − t₁)</li>
+    <li><strong>Inst. Velocity</strong> = dx/dt</li>
+    <li><strong>Avg Acceleration</strong> = (v₂ − v₁)/(t₂ − t₁)</li>
+    <li><strong>Inst. Acceleration</strong> = dv/dt</li>
+  </ul>
+
+  <h2>7. Relative Velocity</h2>
+  <p>Velocity of A wrt B:</p>
+  <div class="formula">V<sub>AB</sub> = V<sub>A</sub> − V<sub>B</sub></div>
+
+  <h2>8. Bonus Formulas</h2>
+  <div class="formula">s = vt − ½ at² (if motion in opposite direction)</div>
+  <div class="formula">s = (v² − u²)/2a</div>
+
+  <div class="note">
+    Always draw diagram before solving kinematics question!
+  </div>
+
 </body>
-</html>
+  </html>
